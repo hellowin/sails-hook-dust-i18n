@@ -23,7 +23,8 @@ Dust.js (Linkedin) helpers that works with [Sails JS](http://sailsjs.org) defaul
 
 ### Todo
 1. Make body block rendering synchronously (look at index.js)
-2. You suggest ...
+2. Add test case, it always thrown an error `Error: Cannot find module '../../../../sails-hooks'`
+3. You suggest ...
 
 ### License
 MIT
