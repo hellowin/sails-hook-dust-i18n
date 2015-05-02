@@ -3,7 +3,7 @@ module.exports = function (sails) {
   return {
     initialize: function (cb) {
 
-      sails.on('hook:views:loaded', function () {
+      sails.after('hook:i18n:loaded', function () {
         var dust = null;
         try {
           dust = require('dust');
