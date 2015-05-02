@@ -8,13 +8,22 @@ Dust.js (Linkedin) helpers that works with [Sails JS](http://sailsjs.org) defaul
 ### Usage
 *requires at least sails >= 0.11*
 
-1. Use it in views with synthax `{@i18n}Welcome{/i18n}` or `{@__}Welcome{/__}` (both `i18n` and `__` has same functionality)
-2. Make sure to define translation in `/config/locales/[locale].js` like `/config/locales/en.js`
-3. That file contains translation in JSON format like `{ "Welcome": "Welcome to Sails!" }`
+1. There are 2 option that describe main text:
+
+  1. Put text in body block, example: `{@i18n}Welcome{/i18n}` or `{@__}Welcome{/__}` (both `i18n` and `__` has same functionality)
+  2. Put in `t` parameter, example: `{@i18n t="Welcome" /}` or `{@__ t="Welcome" /}`
+
+2. Put arguments in `args` parameter if needed, example: `{@i18n args="['guys']" }Welcome %s{/i18n}` will rendered to `Welcomen guys` if locales catalog is like `{"Welcome %s": "Welcomen %s"}`
+4. Make sure to define translation in `/config/locales/[locale].js` like `/config/locales/en.js`
+5. That file contains translation in JSON format like `{ "Welcome": "Welcome to Sails!" }`
 
 ### References
 1. [Sails i18n documentation](http://sailsjs.org/#!/documentation/concepts/Internationalization)
 2. [Node-i18n](https://github.com/mashpie/i18n-node) (dependency that sails-hook-i18n rely on)
+
+### Todo
+1. Make body block rendering synchronously (look at index.js)
+2. You suggest ...
 
 ### License
 MIT
