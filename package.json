@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-dust-i18n",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dust.js (Linkedin) helpers that works with Sails default i18n hook",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,14 @@
   "license": "MIT",
   "devDependencies": {
     "sails": "~0.11.0"
+  },
+  "repository" : {
+    "type" : "git",
+	"url" : "https://github.com/hellowin/sails-hook-dust-i18n"
+  },
+  {
+    "url" : "https://github.com/hellowin/sails-hook-dust-i18n/issues",
+	"email" : "andi.n.dirgantara@gmail.com"
   },
   "sails": {
     "isHook": true
