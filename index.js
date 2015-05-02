@@ -1,0 +1,37 @@
+module.exports = function (sails) {
+
+  return {
+    initialize: function (cb) {
+
+      sails.on('hook:views:loaded', function () {
+        var dust = null;
+        try {
+          dust = require('dust');
+        } catch (err) {
+          try {
+            dust = require('dustjs-helpers');
+          } catch (err) {
+            dust = require('dustjs-linkedin');
+          }
+        }
+
+        dust.helpers.i18n = function (chunk, context, bodies, params) {
+          if (bodies.block) {
+            return chunk.capture(bodies.block, context, function (string, chunk) {
+              var result = sails.__(string);
+
+              chunk.end(result);
+            });
+          }
+
+          return chunk;
+        };
+
+        dust.helpers.__ = dust.helpers.i18n;
+
+        return cb();
+      });
+    }
+  };
+
+};
