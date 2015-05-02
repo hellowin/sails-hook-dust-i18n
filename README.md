@@ -16,5 +16,5 @@ Dust.js (Linkedin) helpers that works with [Sails JS](http://sailsjs.org) defaul
 1. [Sails i18n documentation](http://sailsjs.org/#!/documentation/concepts/Internationalization)
 2. [Node-i18n](https://github.com/mashpie/i18n-node) (dependency that sails-hook-i18n rely on)
 
-##License
+### License
 MIT
