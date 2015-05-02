@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-dust-i18n",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Dust.js (Linkedin) helpers that works with Sails default i18n hook",
   "main": "index.js",
   "scripts": {
