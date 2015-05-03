@@ -5,6 +5,10 @@ Dust.js (Linkedin) helpers that works with [Sails JS](http://sailsjs.org) defaul
 1. Make sure your Sails app. use [Dust.js](https://github.com/linkedin/dustjs) as template engine
 2. Install this hook by `npm install sails-hook-dust-i18n`
 
+### Helpers Included
+1. `i18n` (can also called by `__`)
+2. `exec` see reference [here](https://github.com/hellowin/sails-hook-dust-exec)
+
 ### Usage
 *requires at least sails >= 0.11*
 
