@@ -4,7 +4,7 @@ module.exports = function (sails) {
     initialize: function (cb) {
 
       //load core hooks dependencies
-      var waitFor = ['hook:i18n:loaded', 'hook:views:loaded'];
+      var waitFor = ['hook:i18n:loaded', 'hook:views:loaded', 'hook:logger:loaded'];
       sails.after(waitFor, function () {
         //define dust
         var dust = sails.config.views.engine.dust || null;
@@ -31,6 +31,7 @@ module.exports = function (sails) {
         }
 
         //define helpers
+        dust.helpers.exec = require('./helpers/exec')(sails);
         dust.helpers.i18n = require('./helpers/i18n')(sails);
         dust.helpers.__   = dust.helpers.i18n;
 
