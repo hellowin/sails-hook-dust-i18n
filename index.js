@@ -6,6 +6,7 @@ module.exports = function (sails) {
       //load core hooks dependencies
       var waitFor = ['hook:i18n:loaded', 'hook:views:loaded'];
       sails.after(waitFor, function () {
+        var errMessage = null;
         //define dust
         var dust = sails.config.views.engine.dust || null;
         if (!dust) {
@@ -19,9 +20,8 @@ module.exports = function (sails) {
             }
           }
         }
-
         if (!dust) {
-          var errMessage = 'make sure you have dust.js template engine installed';
+          errMessage = 'make sure you have dust.js template engine installed';
           try {
             sails.log.error(errMessage);
           } catch (e) {
@@ -33,7 +33,7 @@ module.exports = function (sails) {
         //define sails i18n
         var i18n = sails.__ || null;
         if (!i18n) {
-          var errMessage = 'make sure you activate sails i18n hook';
+          errMessage = 'make sure you activate sails i18n hook';
           try {
             sails.log.error(errMessage);
           } catch (e) {
