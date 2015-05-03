@@ -3,21 +3,44 @@ module.exports = function (sails) {
   return {
     initialize: function (cb) {
 
-      sails.after('hook:i18n:loaded', function () {
+      //load core hooks dependencies
+      var waitFor = ['hook:i18n:loaded', 'hook:views:loaded'];
+      sails.after(waitFor, function () {
         //define dust
-        var dust = null;
-        try {
-          dust = require('dust');
-        } catch (err) {
+        var dust = sails.config.views.engine.dust || null;
+        if (!dust) {
           try {
-            dust = require('dustjs-helpers');
+            dust = require('dust');
           } catch (err) {
-            dust = require('dustjs-linkedin');
+            try {
+              dust = require('dustjs-helpers');
+            } catch (err) {
+              dust = require('dustjs-linkedin');
+            }
           }
         }
 
+        if (!dust) {
+          var errMessage = 'make sure you have dust.js template engine installed';
+          try {
+            sails.log.error(errMessage);
+          } catch (e) {
+            console.error(errMessage);
+          }
+          return cb();
+        }
+
         //define sails i18n
-        var i18n = sails.__;
+        var i18n = sails.__ || null;
+        if (!i18n) {
+          var errMessage = 'make sure you activate sails i18n hook';
+          try {
+            sails.log.error(errMessage);
+          } catch (e) {
+            console.error(errMessage);
+          }
+          return cb();
+        }
 
         //define helpers
         dust.helpers.i18n = function (chunk, context, bodies, params) {
