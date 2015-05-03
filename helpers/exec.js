@@ -1,17 +1,11 @@
-module.exports = function (sails) {
+module.exports = function (sails, cb) {
   return function (chunk, context, bodies, params) {
     var errMessage = null;
     var args       = null;
     try {
       args = JSON.parse(params.args.replace(/'/g, '"'));
     } catch (e) {
-      errMessage = 'can\'t parse parameters';
-      try {
-        sails.log.error(errMessage);
-      } catch (e) {
-        console.error(errMessage);
-      }
-      return cb();
+      args = [];
     }
     var object = context.stack.head;
 

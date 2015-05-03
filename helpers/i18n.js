@@ -1,4 +1,4 @@
-module.exports = function (sails) {
+module.exports = function (sails, cb) {
   //define sails i18n
   var i18n = sails.__ || null;
   if (!i18n) {
