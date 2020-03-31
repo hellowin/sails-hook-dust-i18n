@@ -20,7 +20,7 @@
   "author": "Andi N. Dirgantara",
   "license": "MIT",
   "devDependencies": {
-    "sails": "~0.11.0"
+    "sails": "~1.2.4"
   },
   "repository" : {
     "type" : "git",
